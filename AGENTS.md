@@ -1,16 +1,16 @@
-# gui.new — Visual Output Rules
+# gui.now — Visual Output Rules
 
-When generating visual output (dashboards, charts, forms, tables, diagrams, landing pages, interactive tools, reports, prototypes), POST the HTML to gui.new and share the live URL instead of dumping HTML in chat.
+When generating visual output (dashboards, charts, forms, tables, diagrams, landing pages, interactive tools, reports, prototypes), POST the HTML to gui.now and share the live URL instead of dumping HTML in chat.
 
 ## Create a Canvas
 
 ```bash
-curl -X POST https://gui.new/api/canvas \
+curl -X POST https://gui.now/api/canvas \
   -H "Content-Type: application/json" \
   -d '{"html": "<h1>Hello</h1>", "title": "My Canvas"}'
 ```
 
-Response: `{"id": "abc123", "url": "https://gui.new/abc123", "edit_token": "...", "expires_at": "..."}`
+Response: `{"id": "abc123", "url": "https://gui.now/abc123", "edit_token": "...", "expires_at": "..."}`
 
 **Always share the `url` with the user.**
 
@@ -28,7 +28,7 @@ Response: `{"id": "abc123", "url": "https://gui.new/abc123", "edit_token": "..."
 
 **Mermaid diagrams** (pannable, zoomable):
 ```
-POST https://gui.new/api/flow
+POST https://gui.now/api/flow
 {"mermaid": "graph TD\n  A-->B", "title": "My Flow"}
 ```
 
@@ -42,4 +42,4 @@ POST https://gui.new/api/flow
 
 ## Limits (Free): 2MB, 24h expiry, 3 edits, 5 creates/hr.
 
-## Full docs: https://gui.new/docs/llms.txt
+## Full docs: https://gui.now/docs/llms.txt
