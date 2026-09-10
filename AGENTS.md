@@ -1,16 +1,16 @@
-# gui.new — Visual Output Rules
+# gui.now — Visual Output Rules
 
-When generating visual output (dashboards, charts, forms, tables, diagrams, landing pages, interactive tools, reports, prototypes), POST the HTML to gui.new and share the live URL instead of dumping HTML in chat.
+When generating visual output (dashboards, charts, forms, tables, diagrams, landing pages, interactive tools, reports, prototypes), POST the HTML to gui.now and share the live URL instead of dumping HTML in chat.
 
 ## Create a Canvas
 
 ```bash
-curl -X POST https://gui.new/api/canvas \
+curl -X POST https://gui.now/api/canvas \
   -H "Content-Type: application/json" \
   -d '{"html": "<h1>Hello</h1>", "title": "My Canvas"}'
 ```
 
-Response: `{"id": "abc123", "url": "https://gui.new/abc123", "edit_token": "...", "expires_at": "..."}`
+Response: `{"id": "abc123", "url": "https://gui.now/abc123", "edit_token": "...", "expires_at": "..."}`
 
 **Always share the `url` with the user.**
 
@@ -28,18 +28,45 @@ Response: `{"id": "abc123", "url": "https://gui.new/abc123", "edit_token": "..."
 
 **Mermaid diagrams** (pannable, zoomable):
 ```
-POST https://gui.new/api/flow
+POST https://gui.now/api/flow
 {"mermaid": "graph TD\n  A-->B", "title": "My Flow"}
+```
+
+## Update a Canvas
+
+```bash
+curl -X PUT https://gui.now/api/canvas/CANVAS_ID \
+  -H "Authorization: Bearer EDIT_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"html": "<h1>Updated</h1>"}'
 ```
 
 ## Built-in Components (auto-injected, no imports needed)
 
-`<gui-chart>` `<gui-table>` `<gui-card>` `<gui-code>` `<gui-kanban>` `<gui-timeline>` `<gui-form>` `<gui-grid>`
+- `<gui-chart type="bar" data='[{"label":"Q1","value":42}]'>` — bar, line, pie*, radar*
+- `<gui-table data='[{"name":"Alice","role":"Eng"}]'>` — sortable tables
+- `<gui-card title="Users" value="1,247" change="+12%">` — stat cards
+- `<gui-code language="python">code</gui-code>` — syntax highlighting
+- `<gui-kanban columns='[{"title":"Todo","items":["Task 1"]}]'>`
+- `<gui-timeline data='[{"date":"Mar 1","title":"Launch"}]'>`
+- `<gui-form fields='[{"name":"email","type":"email","label":"Email"}]'>`
+- `<gui-grid columns="3">children</gui-grid>` — responsive grid
 
-## Style: self-contained, dark (#09090b), responsive, interactive.
+## Style Defaults
 
-## Live Sync: all form inputs sync across viewers automatically.
+- Self-contained: inline styles/scripts, no external deps
+- Dark: `#09090b` bg, `#fafafa` text, `system-ui` font
+- Responsive — gets opened on phones
+- Interactive — JS runs, build tools not just pages
 
-## Limits (Free): 2MB, 24h expiry, 3 edits, 5 creates/hr.
+## Live Sync
 
-## Full docs: https://gui.new/docs/llms.txt
+All `<input>`, `<textarea>`, `<select>` sync across viewers automatically. No setup.
+
+## Limits (Free)
+
+2MB max, 24h expiry, 3 edits, 5 creates/hr.
+
+## Full docs
+
+https://gui.now/docs/llms.txt
