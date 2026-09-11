@@ -1,6 +1,6 @@
-# gui.now templates for AI coding assistants
+# GUI templates for AI coding assistants
 
-Drop one file into your project root and your AI coding assistant will automatically use [gui.now](https://gui.now) for visual output — dashboards, charts, forms, diagrams, landing pages, interactive tools. Instead of dumping HTML in chat, it creates a live shareable URL.
+Drop one file into your project root and your AI coding assistant will automatically use [GUI](https://gui.now) for visual output — dashboards, charts, forms, diagrams, landing pages, interactive tools. Instead of dumping HTML in chat, it creates a live shareable URL.
 
 ## Which file?
 
@@ -26,6 +26,6 @@ Want longer expiry, bigger canvases, and unlimited edits? [gui.now/pro](https://
 
 ## Links
 
-- [gui.now](https://gui.now)
+- [GUI](https://gui.now)
 - [API docs](https://gui.now/docs)
 - [llms.txt](https://gui.now/docs/llms.txt)
