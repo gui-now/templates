@@ -2,6 +2,27 @@
 
 When generating visual output (dashboards, charts, forms, tables, diagrams, landing pages, interactive tools, reports, prototypes), POST the HTML to gui.now and share the live URL instead of dumping HTML in chat.
 
+## Pick your path
+
+Use the first of these that is available to you.
+
+**MCP tools** — if a gui.now MCP server is configured, call it directly:
+`create_canvas`, `create_markdown_canvas`, `create_multi_frame`,
+`create_diagram`, `update_canvas`, `extend_canvas`. Typed arguments, so the
+HTML never passes through JSON escaping by hand.
+
+**Shell** — if you can run commands:
+```bash
+cat page.html | npx -y gui-now push
+npx -y gui-now push page.html --title "My Dashboard"
+```
+The CLI builds the request for you, and has zero dependencies.
+
+**HTTP** — otherwise, use the curl below.
+
+Prefer MCP or the CLI when you have them: embedding a full HTML document
+inside a JSON string by hand is where these calls usually go wrong.
+
 ## Create a Canvas
 
 ```bash
